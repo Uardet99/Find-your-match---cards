@@ -7,7 +7,7 @@ export class Jugador {
 
   // Metodo para agregar puntos
   agregarPuntos(cantidad) {
-    this.puntos += cantidad;
+    this.puntos = cantidad;
   }
 
   // Metodo para obtener puntos

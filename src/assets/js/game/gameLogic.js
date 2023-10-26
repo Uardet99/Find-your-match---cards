@@ -1,5 +1,12 @@
 // Esta funcion es un inicializador que se utilizara en el game.js
 import { Jugador } from "./jugador.js";
+import {
+  habilitarClick,
+  desactivarClick,
+  desabilitarEsteClick,
+  reiniciarClick,
+} from "../views.js";
+
 function startGame() {
   let btnJugar = document.getElementById("btn-play");
   btnJugar.addEventListener("click", () => {
@@ -21,31 +28,42 @@ function obtenerNombreImagenes() {
       if (primeraImagen === null) {
         primeraImagen = this; // Si es el primer clic, almacena la referencia de esta imagen
 
-        primeraImagen.style.pointerEvents = "none"; // Deshabilita el clic en esta imagen
+        //primeraImagen.style.pointerEvents = "none"; 
+        desabilitarEsteClick(primeraImagen);
       } else {
         // Si es el segundo clic, compara los src
         if (primeraImagen.src === this.src) {
           jugadorActual.agregarPuntos(++puntos);
-          console.log(jugadorActual.nombre + ": " + jugadorActual.obtenerPuntos());
-          this.style.pointerEvents = "none"; // Deshabilita el clic en ambas imágenes
+          console.log(
+            jugadorActual.nombre +
+              " -> " +
+              jugadorActual.obtenerPuntos() +
+              " puntos"
+          );
+          //this.style.pointerEvents = "none"; // Deshabilita el clic en ambas imágenes
+          //desactivarClick.call(this); // Usando el call() mantenemos el contexto del this
+          primeraImagen.remove();
+          this.remove();
         } else {
           primeraImagen.style.pointerEvents = ""; // Si no coinciden, habilita el clic nuevamente en la primera imagen
-          cambiarTurno();
+          //habilitarClick(primeraImagen);
+          jugadorActual = cambiarTurno(jugadorActual);
           jugadorActual.obtenerPuntos();
         }
 
         primeraImagen = null; // Reiniciar la primeraImagen para el próximo par de clics
+        //reiniciarClick(primeraImagen);
       }
     });
   });
 }
 
-function cambiarTurno() {
+function cambiarTurno(jugadorActual) {
   if (jugadorActual === jugador1) {
-    jugadorActual = jugador2;
-  } else {
-    jugadorActual = jugador1;
+    return (jugadorActual = jugador2);
   }
+
+  return (jugadorActual = jugador1);
 }
 
 export { startGame };
