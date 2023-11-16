@@ -1,4 +1,4 @@
-const state = {
+export const state = {
   players: [
     {
       name: "Jugador 1",

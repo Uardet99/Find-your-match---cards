@@ -34,11 +34,11 @@ function plantillaTablero() {
           <div id="cont-jugadores" class="contenedor-jugadores">
             <div id="jugador-1" class="item-jugador">
               <h1>Jugador 1</h1>
-              <h3 id="ju-1-puntos">Puntos:</h3>
+              <h3 id="ju-1-puntos">Puntos: 0</h3>
             </div>
             <div id="jugador-2" class="item-jugador">
               <h1>Jugador 2</h1>
-              <h3 id="ju-2-puntos">Puntos:</h3>
+              <h3 id="ju-2-puntos">Puntos: 0</h3>
             </div>
           </div>
   

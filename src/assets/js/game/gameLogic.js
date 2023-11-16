@@ -1,5 +1,6 @@
 // Esta funcion es un inicializador que se utilizara en el game.js
 import { Jugador } from "./jugador.js";
+import { state } from "./gameState.js";
 import {
   habilitarClick,
   desactivarClick,
