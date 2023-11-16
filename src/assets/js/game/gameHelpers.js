@@ -1,9 +1,14 @@
 // FUNCIONES AUXILIARES ESPECIFICAS DEL JUEGO
 
 function createTable() {
+  // Obtenemos el contenedor principal
   let contPrincipal = document.getElementById("contenedor-principal");
+  // Obtenemos del contenedor principal mediante la funcion children, el boton que esta en la posicion 2
+  // y lo almacenamos en la variable btn_jugar
   let btn_jugar = contPrincipal.children[2];
 
+  // Le colocamos un listener para cuando lo pulsemos obtengamos el div donde se mostrara el tablero,
+  // creemos el tablero y añadimos las imagenes
   btn_jugar.addEventListener("click", () => {
     let contenidoDinamico = document.getElementById("contenido-dinamico");
     contenidoDinamico.innerHTML = plantillaTablero();
@@ -23,16 +28,17 @@ function addImagenesPlantilla() {
   }
 }
 
+// Retornamos un template del tablero
 function plantillaTablero() {
   return ` <div class="cont-dinamico">
           <div id="cont-jugadores" class="contenedor-jugadores">
             <div id="jugador-1" class="item-jugador">
               <h1>Jugador 1</h1>
-              <h3>Puntos:</h3>
+              <h3 id="ju-1-puntos">Puntos:</h3>
             </div>
             <div id="jugador-2" class="item-jugador">
               <h1>Jugador 2</h1>
-              <h3>Puntos:</h3>
+              <h3 id="ju-2-puntos">Puntos:</h3>
             </div>
           </div>
   

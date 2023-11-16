@@ -11,7 +11,7 @@ function desabilitarEsteClick(item) {
 }
 
 function reiniciarClick(item) {
-  item = null;
+  return item = null;
 }
 
 export {

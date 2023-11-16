@@ -22,24 +22,26 @@ const jugador2 = new Jugador("Jugador 2");
 function obtenerNombreImagenes() {
   let jugadorActual = jugador1;
   let primeraImagen = null;
-  let puntos = 0;
+
   document.querySelectorAll("img").forEach((img) => {
     img.addEventListener("click", function (event) {
       if (primeraImagen === null) {
         primeraImagen = this; // Si es el primer clic, almacena la referencia de esta imagen
 
-        //primeraImagen.style.pointerEvents = "none"; 
-        desabilitarEsteClick(primeraImagen);
+        //primeraImagen.style.pointerEvents = "none";
+        desabilitarEsteClick(primeraImagen); // Desabilitamos el click en la imagen que ya hemos clicado
       } else {
-        // Si es el segundo clic, compara los src
+        // Si es el segundo clic, compara los src y si son iguales punto para el jugador
         if (primeraImagen.src === this.src) {
-          jugadorActual.agregarPuntos(++puntos);
+          jugadorActual.agregarPuntos(++jugadorActual.puntos);
           console.log(
             jugadorActual.nombre +
               " -> " +
               jugadorActual.obtenerPuntos() +
               " puntos"
           );
+
+          actualizarMarcadores(jugadorActual);
           //this.style.pointerEvents = "none"; // Deshabilita el clic en ambas imágenes
           //desactivarClick.call(this); // Usando el call() mantenemos el contexto del this
           primeraImagen.remove();
@@ -51,8 +53,8 @@ function obtenerNombreImagenes() {
           jugadorActual.obtenerPuntos();
         }
 
-        primeraImagen = null; // Reiniciar la primeraImagen para el próximo par de clics
-        //reiniciarClick(primeraImagen);
+        //primeraImagen = null; // Reiniciar la primeraImagen para el próximo par de clics
+        primeraImagen = reiniciarClick(primeraImagen);
       }
     });
   });
@@ -64,6 +66,18 @@ function cambiarTurno(jugadorActual) {
   }
 
   return (jugadorActual = jugador1);
+}
+
+function actualizarMarcadores(jugadorActual) {
+  if (jugadorActual === jugador1) {
+    document.getElementById("ju-1-puntos").innerHTML = "";
+    document.getElementById("ju-1-puntos").innerHTML +=
+      "Puntos: " + jugadorActual.obtenerPuntos();
+  } else {
+    document.getElementById("ju-2-puntos").innerHTML = "";
+    document.getElementById("ju-2-puntos").innerHTML +=
+      "Puntos: " + jugadorActual.obtenerPuntos();
+  }
 }
 
 export { startGame };
