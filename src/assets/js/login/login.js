@@ -1,5 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
-   // DECLARACIONES DE FUNCIONES 
-
+document.addEventListener("DOMContentLoaded", function () {
+  // DECLARACIONES DE FUNCIONES
 });
+
+
+
 

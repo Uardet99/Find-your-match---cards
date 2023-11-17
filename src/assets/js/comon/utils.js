@@ -1,6 +1,8 @@
 // FUNCIONES UTILIES GENERALES
 import { createTable } from "../game/gameHelpers.js";
 import { startGame } from "../game/gameLogic.js";
+import { login } from "../login/loginHelpers.js";
+import { register } from "../register/registerHelpers.js";
 
 export function ruta(url) {
   const contenedorDinamico = document.getElementById("contenido-dinamico");
@@ -10,10 +12,12 @@ export function ruta(url) {
       break;
     case "#/login":
       contenedorDinamico.innerHTML = "";
+      login();
       console.log("Login");
       break;
     case "#/register":
       contenedorDinamico.innerHTML = "";
+      register();
       console.log("register");
       break;
     case "#/jugar":
@@ -24,6 +28,7 @@ export function ruta(url) {
       break;
 
     case "#/logout":
+      contenedorDinamico.innerHTML = "";
       console.log("logout");
       break;
     default:
