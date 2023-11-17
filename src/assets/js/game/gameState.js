@@ -3,15 +3,14 @@ export const state = {
     {
       name: "Jugador 1",
       points: 0,
-      turno: true,
     },
     {
       name: "Jugador 2",
       points: 0,
-      turno: false,
     },
   ],
 
+  turno: 0,
   board: {
     rows: 4,
     columns: 5,

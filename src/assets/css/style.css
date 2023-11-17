@@ -45,6 +45,11 @@ header {
     color: white;
 }
 
+#btn-logout {
+  background-color: gray;
+  color: white;
+}
+
 #contenedor-principal button:hover {
     opacity: 0.8;
 }

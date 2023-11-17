@@ -26,6 +26,7 @@ function obtenerNombreImagenes() {
 
   document.querySelectorAll("img").forEach((img) => {
     img.addEventListener("click", function (event) {
+      
       if (primeraImagen === null) {
         primeraImagen = this; // Si es el primer clic, almacena la referencia de esta imagen
 

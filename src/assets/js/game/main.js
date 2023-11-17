@@ -1,10 +1,12 @@
-import { createTable } from "./gameHelpers.js";
-import { startGame } from "./gameLogic.js";
+import { ruta } from "../comon/utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  
-  createTable();
+  ruta(window.location.hash);
 
-  startGame();
+  window.addEventListener("hashchange", () => {
+    ruta(window.location.hash);
+  });
+  
+
   
 });

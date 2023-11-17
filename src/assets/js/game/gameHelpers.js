@@ -5,7 +5,8 @@ function createTable() {
   let contPrincipal = document.getElementById("contenedor-principal");
   // Obtenemos del contenedor principal mediante la funcion children, el boton que esta en la posicion 2
   // y lo almacenamos en la variable btn_jugar
-  let btn_jugar = contPrincipal.children[2];
+  //let btn_jugar = contPrincipal.children[2];
+  let btn_jugar = document.getElementById("btn-play");
 
   // Le colocamos un listener para cuando lo pulsemos obtengamos el div donde se mostrara el tablero,
   // creemos el tablero y añadimos las imagenes
