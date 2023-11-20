@@ -10,9 +10,10 @@ import {
 
 function startGame() {
   let btnJugar = document.getElementById("btn-play");
-  btnJugar.addEventListener("click", () => {
+  /* btnJugar.addEventListener("click", () => {
     obtenerNombreImagenes();
-  });
+  }); */
+  obtenerNombreImagenes();
 }
 
 const jugador1 = new Jugador("Jugador 1");
@@ -29,20 +30,26 @@ function obtenerNombreImagenes() {
       
       if (primeraImagen === null) {
         primeraImagen = this; // Si es el primer clic, almacena la referencia de esta imagen
-
+        
         //primeraImagen.style.pointerEvents = "none";
         desabilitarEsteClick(primeraImagen); // Desabilitamos el click en la imagen que ya hemos clicado
       } else {
         // Si es el segundo clic, compara los src y si son iguales punto para el jugador
         if (primeraImagen.src === this.src) {
           jugadorActual.agregarPuntos(++jugadorActual.puntos);
-          console.log(
+          /* console.log(
             jugadorActual.nombre +
               " -> " +
               jugadorActual.obtenerPuntos() +
               " puntos"
-          );
-
+          ); */
+          console.log(
+            primeraImagen.src +
+              " === " +
+              this.src +
+              " -> " +
+              (primeraImagen.src === this.src)
+          ); 
           actualizarMarcadores(jugadorActual);
           //this.style.pointerEvents = "none"; // Deshabilita el clic en ambas imágenes
           //desactivarClick.call(this); // Usando el call() mantenemos el contexto del this

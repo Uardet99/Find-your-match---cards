@@ -6,6 +6,7 @@ import { register } from "../register/registerHelpers.js";
 
 export function ruta(url) {
   const contenedorDinamico = document.getElementById("contenido-dinamico");
+  
   switch (url) {
     case "":
       window.location.hash = "#/";
@@ -21,7 +22,7 @@ export function ruta(url) {
       console.log("register");
       break;
     case "#/jugar":
-      
+      contenedorDinamico.innerHTML = "";
       createTable();
       startGame();
       console.log("Jugar");

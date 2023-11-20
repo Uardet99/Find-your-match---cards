@@ -10,11 +10,14 @@ function createTable() {
 
   // Le colocamos un listener para cuando lo pulsemos obtengamos el div donde se mostrara el tablero,
   // creemos el tablero y añadimos las imagenes
-  btn_jugar.addEventListener("click", () => {
+  /* btn_jugar.addEventListener("click", () => {
     let contenidoDinamico = document.getElementById("contenido-dinamico");
     contenidoDinamico.innerHTML = plantillaTablero();
     addImagenesPlantilla();
-  });
+  }); */
+  let contenidoDinamico = document.getElementById("contenido-dinamico");
+  contenidoDinamico.innerHTML = plantillaTablero();
+  addImagenesPlantilla();
 }
 
 function addImagenesPlantilla() {
