@@ -114,7 +114,8 @@ function imgAleatoria() {
     arrayAuxiliar.push(imagenSeleccionada);
   }
 
-  return arrayAuxiliar; // Esto genera 1 numero aleatorio entre el 0 y el 19
+  console.log(arrayAuxiliar);
+  return arrayAuxiliar; // Esto contiene las cartas colocadas aleatoriamente
 }
 
 export { createTable };
