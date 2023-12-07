@@ -19,6 +19,7 @@ export function ruta(url) {
     case "#/register":
       contenedorDinamico.innerHTML = "";
       register();
+      
       console.log("register");
       break;
     case "#/jugar":

@@ -11,7 +11,26 @@ function desabilitarEsteClick(item) {
 }
 
 function reiniciarClick(item) {
-  return item = null;
+  return (item = null);
+}
+
+function resaltarDivJugador(jugador) {
+  let contenedorJugador1 = document.getElementById("jugador-1");
+  let contenedorJugador2 = document.getElementById("jugador-2");
+  if (jugador.nombre == "Jugador 1") {
+    contenedorJugador1.style.backgroundColor = "#00FF59";
+    contenedorJugador2.style.backgroundColor = "red";
+    console.log("Ponemos color al juhgador 2");
+  } else {
+    contenedorJugador2.style.backgroundColor = "#00FF59";
+    contenedorJugador1.style.backgroundColor = "red";
+    console.log("Ponemos color al jugador 1");
+  }
+}
+
+function resaltarDivJugadorPrimerTurno() {
+  let contenedorJugador1 = document.getElementById("jugador-1");
+  contenedorJugador1.style.backgroundColor = "red";
 }
 
 export {
@@ -19,4 +38,6 @@ export {
   desactivarClick,
   desabilitarEsteClick,
   reiniciarClick,
+  resaltarDivJugador,
+  resaltarDivJugadorPrimerTurno
 };

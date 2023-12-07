@@ -6,6 +6,8 @@ import {
   desactivarClick,
   desabilitarEsteClick,
   reiniciarClick,
+  resaltarDivJugador,
+  resaltarDivJugadorPrimerTurno,
 } from "../views.js";
 
 function startGame() {
@@ -19,11 +21,15 @@ function startGame() {
 const jugador1 = new Jugador("Jugador 1");
 const jugador2 = new Jugador("Jugador 2");
 
-// Variable de control
-
 function obtenerNombreImagenes() {
   let jugadorActual = jugador1;
   let primeraImagen = null;
+  let cont = 0;
+
+  if (cont == 0) {
+    resaltarDivJugadorPrimerTurno();
+    cont++;
+  }
 
   document.querySelectorAll("img").forEach((img) => {
     img.addEventListener("click", function (event) {
@@ -40,9 +46,9 @@ function obtenerNombreImagenes() {
               jugadorActual.obtenerPuntos() +
               " puntos"
           );
-          
+
           actualizarMarcadores(jugadorActual);
-          
+
           primeraImagen.remove();
           this.remove();
         } else {
@@ -51,18 +57,19 @@ function obtenerNombreImagenes() {
           jugadorActual.obtenerPuntos();
         }
 
-        
         primeraImagen = reiniciarClick(primeraImagen);
       }
     });
+    
   });
 }
 
+
 function cambiarTurno(jugadorActual) {
+  resaltarDivJugador(jugadorActual);
   if (jugadorActual === jugador1) {
     return (jugadorActual = jugador2);
   }
-
   return (jugadorActual = jugador1);
 }
 
@@ -79,4 +86,3 @@ function actualizarMarcadores(jugadorActual) {
 }
 
 export { startGame };
-

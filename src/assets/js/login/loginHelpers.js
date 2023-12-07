@@ -4,6 +4,9 @@ export function login() {
   const btn_login = document.getElementById("btn-login");
 
   contenedorDinamico.innerHTML = plantillaLogin();
+
+  let nombreUsuario = document.getElementById("usuario");
+  console.log(nombreUsuario);
 }
 
 function plantillaLogin() {
