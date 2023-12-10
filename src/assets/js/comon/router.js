@@ -1,37 +1,42 @@
 // FUNCIONES UTILIES GENERALES
 import { createTable } from "../game/gameHelpers.js";
 import { startGame } from "../game/gameLogic.js";
-import { login } from "../login/loginHelpers.js";
-import { register } from "../register/registerHelpers.js";
+import { login, loginForm } from "../login/loginHelpers.js";
+import { register, registerForm } from "../register/registerHelpers.js";
+import { logout } from "./users.js";
 
 export function ruta(url) {
   const contenedorDinamico = document.getElementById("contenido-dinamico");
-  
+  let sesionInicia = false;
+
   switch (url) {
     case "":
       window.location.hash = "#/";
       break;
     case "#/login":
       contenedorDinamico.innerHTML = "";
-      login();
-      console.log("Login");
+      //login();
+      contenedorDinamico.append(loginForm());
+      sesionInicia = true;
       break;
     case "#/register":
       contenedorDinamico.innerHTML = "";
-      register();
-      
-      console.log("register");
+      // register();
+      contenedorDinamico.append(registerForm());
+
       break;
     case "#/jugar":
       contenedorDinamico.innerHTML = "";
+
       createTable();
       startGame();
+
       console.log("Jugar");
       break;
 
     case "#/logout":
       contenedorDinamico.innerHTML = "";
-      console.log("logout");
+      logout();
       break;
     default:
       window.location.hash = "#/";
