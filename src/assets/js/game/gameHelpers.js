@@ -8,7 +8,7 @@ function createTable() {
   addImagenesPlantilla();
 }
 
-function addImagenesPlantilla() {
+export function addImagenesPlantilla() {
   let td = document.querySelectorAll("td");
   let arrayRutaImagen = imgAleatoria();
 
@@ -22,7 +22,7 @@ function addImagenesPlantilla() {
 }
 
 // Retornamos un template del tablero
-function plantillaTablero() {
+export function plantillaTablero() {
   return ` <div class="cont-dinamico">
           <div id="cont-jugadores" class="contenedor-jugadores">
             <div id="jugador-1" class="item-jugador">
@@ -70,7 +70,7 @@ function plantillaTablero() {
         </div>`;
 }
 
-function imgAleatoria() {
+export function imgAleatoria() {
   let arrayImagenes = [
     "as_corazones.png",
     "as_corazones.png",

@@ -14,7 +14,6 @@ function obtenerDatosRegistro() {
   });
 }
 
-function registroSupabase(correo, password, passwordRepetida) {}
 
 function plantillaRegistro() {
   return `<div class="register-container">

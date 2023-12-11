@@ -91,7 +91,7 @@ function obtenerNombreImagenes() {
   });
 }
 
-function cambiarTurno(jugadorActual) {
+export function cambiarTurno(jugadorActual) {
   resaltarDivJugador(jugadorActual);
   if (jugadorActual === jugador1) {
     state.turno = 1;
@@ -101,7 +101,7 @@ function cambiarTurno(jugadorActual) {
   return (jugadorActual = jugador1);
 }
 
-function actualizarMarcadores(jugadorActual) {
+export function actualizarMarcadores(jugadorActual) {
   if (jugadorActual === jugador1) {
     document.getElementById("ju-1-puntos").innerHTML = "";
     document.getElementById("ju-1-puntos").innerHTML +=
