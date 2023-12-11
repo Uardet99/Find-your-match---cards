@@ -1,20 +1,8 @@
 // FUNCIONES AUXILIARES ESPECIFICAS DEL JUEGO
+export { createTable };
+import { state } from "./gameState.js";
 
 function createTable() {
-  // Obtenemos el contenedor principal
-  let contPrincipal = document.getElementById("contenedor-principal");
-  // Obtenemos del contenedor principal mediante la funcion children, el boton que esta en la posicion 2
-  // y lo almacenamos en la variable btn_jugar
-  //let btn_jugar = contPrincipal.children[2];
-  let btn_jugar = document.getElementById("btn-play");
-
-  // Le colocamos un listener para cuando lo pulsemos obtengamos el div donde se mostrara el tablero,
-  // creemos el tablero y añadimos las imagenes
-  /* btn_jugar.addEventListener("click", () => {
-    let contenidoDinamico = document.getElementById("contenido-dinamico");
-    contenidoDinamico.innerHTML = plantillaTablero();
-    addImagenesPlantilla();
-  }); */
   let contenidoDinamico = document.getElementById("contenido-dinamico");
   contenidoDinamico.innerHTML = plantillaTablero();
   addImagenesPlantilla();
@@ -28,6 +16,7 @@ function addImagenesPlantilla() {
     let img = document.createElement("img");
     img.src = "src/assets/img/" + arrayRutaImagen[i];
 
+    img.id = "img-" + i;
     td[i].appendChild(img);
   }
 }
@@ -35,6 +24,7 @@ function addImagenesPlantilla() {
 // Retornamos un template del tablero
 function plantillaTablero() {
   return ` <div class="cont-dinamico">
+            <h1>Castillo, no he girat les cartes per a que siga mes facil probar el joc</h1>
           <div id="cont-jugadores" class="contenedor-jugadores">
             <div id="jugador-1" class="item-jugador">
               <h1>Jugador 1</h1>
@@ -112,10 +102,11 @@ function imgAleatoria() {
     let indice = Math.floor(Math.random() * arrayTemp.length);
     let [imagenSeleccionada] = arrayTemp.splice(indice, 1); // Elimina y obtiene el elemento
     arrayAuxiliar.push(imagenSeleccionada);
+
+    state.board.cells.push(imagenSeleccionada);
   }
 
+  console.log(state.board.cells);
   console.log(arrayAuxiliar);
   return arrayAuxiliar; // Esto contiene las cartas colocadas aleatoriamente
 }
-
-export { createTable };

@@ -3,10 +3,12 @@ export const state = {
     {
       name: "Jugador 1",
       points: 0,
+      win: 0
     },
     {
       name: "Jugador 2",
       points: 0,
+      win: 0
     },
   ],
 
@@ -14,15 +16,8 @@ export const state = {
   board: {
     rows: 4,
     columns: 5,
-    cells: [
-      [null, null, null, null, null],
-      [null, null, null, null, null],
-      [null, null, null, null, null],
-      [null, null, null, null, null],
-    ],
+    cells: [],
   },
 };
 
-export function updateCells() {
-  
-}
+export function updateCells() {}

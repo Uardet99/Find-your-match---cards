@@ -40,30 +40,46 @@ function obtenerNombreImagenes() {
         // Si es el segundo clic, compara los src y si son iguales punto para el jugador
         if (primeraImagen.src === this.src) {
           jugadorActual.agregarPuntos(++jugadorActual.puntos);
-          console.log(
-            jugadorActual.nombre +
-              " -> " +
-              jugadorActual.obtenerPuntos() +
-              " puntos"
-          );
-
           actualizarMarcadores(jugadorActual);
 
           primeraImagen.remove();
           this.remove();
+          /* console.log(event.target.id.split("-")[1]); */
+
+          /* console.log(
+            this.id.split("-")[1] +
+              " " +
+              state.board.cells[this.id.split("-")[1]]
+          );
+          console.log(
+            primeraImagen.id.split("-")[1] +
+              " " +
+              state.board.cells[primeraImagen.id.split("-")[1]]
+          ); */
+          
+          state.board.cells[this.id.split("-")[1]] = "";
+          state.board.cells[primeraImagen.id.split("-")[1]] = "";
+          console.log(state.board.cells);
         } else {
           primeraImagen.style.pointerEvents = ""; // Si no coinciden, habilita el clic nuevamente en la primera imagen
           jugadorActual = cambiarTurno(jugadorActual);
           jugadorActual.obtenerPuntos();
         }
 
+        if (jugador1.obtenerPuntos() + jugador2.obtenerPuntos() == 10) {
+          if (jugador1.obtenerPuntos() > jugador2.obtenerPuntos()) {
+            alert("¡Has ganado Jugador 1!");
+          } else if (jugador1.obtenerPuntos() < jugador2.obtenerPuntos()) {
+            alert("¡Has ganado Jugador 2!");
+          } else {
+            alert("¡Empate!");
+          }
+        }
         primeraImagen = reiniciarClick(primeraImagen);
       }
     });
-    
   });
 }
-
 
 function cambiarTurno(jugadorActual) {
   resaltarDivJugador(jugadorActual);

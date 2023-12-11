@@ -7,7 +7,6 @@ import { logout } from "./users.js";
 
 export function ruta(url) {
   const contenedorDinamico = document.getElementById("contenido-dinamico");
-  let sesionInicia = false;
 
   switch (url) {
     case "":
@@ -17,7 +16,6 @@ export function ruta(url) {
       contenedorDinamico.innerHTML = "";
       //login();
       contenedorDinamico.append(loginForm());
-      sesionInicia = true;
       break;
     case "#/register":
       contenedorDinamico.innerHTML = "";
@@ -27,10 +25,8 @@ export function ruta(url) {
       break;
     case "#/jugar":
       contenedorDinamico.innerHTML = "";
-
       createTable();
       startGame();
-
       console.log("Jugar");
       break;
 
