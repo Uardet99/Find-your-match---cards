@@ -42,6 +42,13 @@ function obtenerNombreImagenes() {
           jugadorActual.agregarPuntos(++jugadorActual.puntos);
           actualizarMarcadores(jugadorActual);
 
+          // ACTUALIZAMOS LA VARIABLE DE CONTROL
+          if (jugadorActual == jugador1) {
+            state.players[0].points++;
+          } else {
+            state.players[1].points++;
+          }
+
           primeraImagen.remove();
           this.remove();
           /* console.log(event.target.id.split("-")[1]); */
@@ -56,7 +63,8 @@ function obtenerNombreImagenes() {
               " " +
               state.board.cells[primeraImagen.id.split("-")[1]]
           ); */
-          
+
+          // PARA ELIMINAR LAS CARTAS DE LA VARIABLE DE ESTADO
           state.board.cells[this.id.split("-")[1]] = "";
           state.board.cells[primeraImagen.id.split("-")[1]] = "";
           console.log(state.board.cells);
@@ -68,9 +76,11 @@ function obtenerNombreImagenes() {
 
         if (jugador1.obtenerPuntos() + jugador2.obtenerPuntos() == 10) {
           if (jugador1.obtenerPuntos() > jugador2.obtenerPuntos()) {
+            state.players[0].wins++;
             alert("¡Has ganado Jugador 1!");
           } else if (jugador1.obtenerPuntos() < jugador2.obtenerPuntos()) {
             alert("¡Has ganado Jugador 2!");
+            state.players[1].wins++;
           } else {
             alert("¡Empate!");
           }
@@ -84,8 +94,10 @@ function obtenerNombreImagenes() {
 function cambiarTurno(jugadorActual) {
   resaltarDivJugador(jugadorActual);
   if (jugadorActual === jugador1) {
+    state.turno = 1;
     return (jugadorActual = jugador2);
   }
+  state.turno = 0;
   return (jugadorActual = jugador1);
 }
 

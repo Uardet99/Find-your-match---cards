@@ -24,7 +24,6 @@ function addImagenesPlantilla() {
 // Retornamos un template del tablero
 function plantillaTablero() {
   return ` <div class="cont-dinamico">
-            <h1>Castillo, no he girat les cartes per a que siga mes facil probar el joc</h1>
           <div id="cont-jugadores" class="contenedor-jugadores">
             <div id="jugador-1" class="item-jugador">
               <h1>Jugador 1</h1>

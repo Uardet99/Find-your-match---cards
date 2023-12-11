@@ -67,6 +67,12 @@ function loginForm() {
       const password = divLogin.querySelector("#loginpassword").value;
       loginUser(email, password).then((status) => {
         if (status.success) {
+          // Para mostrar los botones
+          document.getElementById("btn-play").style.visibility = "visible";
+          document.getElementById("btn-logout").style.visibility = "visible";
+          document.getElementById("btn-profile").style.visibility = "visible";
+
+          localStorage.setItem("correo", email);
           window.location.hash = "#/jugar";
         } else {
           divLogin.querySelector("#errors").innerHTML = status.errorText;

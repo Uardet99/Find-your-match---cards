@@ -43,11 +43,19 @@ header {
 #btn-play {
     background-color: #e74c3c;
     color: white;
+    visibility: hidden;
+}
+
+#btn-profile {
+  background-color: goldenrod;
+  color: white;
+  visibility: hidden;
 }
 
 #btn-logout {
   background-color: gray;
   color: white;
+  visibility: hidden;
 }
 
 #contenedor-principal button:hover {
@@ -335,4 +343,45 @@ header {
 #errors {
   color: red;
   margin-top: 1rem;
+}
+
+
+/* PERFIL DEL USUARIO */
+.profile-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info {
+  text-align: left;
+}
+
+.profile-info label {
+  font-weight: bold;
+}
+
+.profile-info p {
+  margin: 10px 0;
+}
+
+#upload-input {
+  display: none;
 }
