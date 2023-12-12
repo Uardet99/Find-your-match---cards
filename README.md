@@ -34,7 +34,7 @@ Bienvenido al Juego de Cartas de Búsqueda de Parejas, un emocionante juego en e
 
 ## Capturas de Pantalla
 
-![Captura de Pantalla 1](/screenshots/screenshot1.png)
+[![tablero.png](https://i.postimg.cc/0ydKxn2R/tablero.png)](https://postimg.cc/Wdz1wMkX)
 
 ![Captura de Pantalla 2](/screenshots/screenshot2.png)
 
