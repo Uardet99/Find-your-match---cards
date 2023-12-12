@@ -36,7 +36,7 @@ Bienvenido al Juego de Cartas de Búsqueda de Parejas, un emocionante juego en e
 
 [tablero.png](https://postimg.cc/Wdz1wMkX)
 
-[profile.png](https://postimg.cc/gxyPCsZY)
+
 
 ## Requisitos Técnicos
 
