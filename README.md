@@ -32,7 +32,11 @@ Bienvenido al Juego de Cartas de Búsqueda de Parejas, un emocionante juego en e
 
 7. ¡El jugador con la puntuación más alta gana!
 
-## Capturas de Pantalla
+## Captura de Pantalla (Tablero)
+
+[![tablero.png](https://i.postimg.cc/0ydKxn2R/tablero.png)](https://postimg.cc/Wdz1wMkX)
+
+## Captura de Pantalla (Perfil)
 
 [![profile.png](https://i.postimg.cc/vZkH6S86/profile.png)](https://postimg.cc/gxyPCsZY)
 
