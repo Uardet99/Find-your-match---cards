@@ -44,7 +44,7 @@
 
 - El juego está desarrollado utilizando HTML, CSS y JavaScript. 🌐🖌️
 
-- Se utiliza una base de datos para almacenar la información de los usuarios y las puntuaciones. 💾📊
+- Utilizamos [Supabase](https://supabase.io/) como plataforma de backend y base de datos. Supabase es una plataforma de desarrollo de código abierto que proporciona una base de datos PostgreSQL y una interfaz de API RESTful para facilitar el desarrollo de aplicaciones web y móviles. 💾📊
 
 ## Cómo Ejecutar el Proyecto ▶️
 
@@ -60,6 +60,6 @@ Si deseas contribuir al desarrollo de este proyecto, ¡estamos abiertos a colabo
 
 ## Autor 👨‍💻
 
-- [Tu Nombre](https://github.com/uardet99) 🧑‍💻🚀
+- [Uardet99](https://github.com/Uardet99) 🧑‍💻🚀
 
 ¡Disfruta del juego y diviértete encontrando parejas de cartas! 🃏🎉
