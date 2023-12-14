@@ -34,11 +34,11 @@
 
 ## Captura de Pantalla (Tablero) 📸
 
-[![tablero.png](https://i.postimg.cc/0ydKxn2R/tablero.png)](https://postimg.cc/Wdz1wMkX)
+[![tablero.png](https://i.postimg.cc/DzvtghdS/tablero.png)](https://postimg.cc/gx7Szf7p)
 
 ## Captura de Pantalla (Perfil) 📷
 
-[![profile.png](https://i.postimg.cc/vZkH6S86/profile.png)](https://postimg.cc/gxyPCsZY)
+[![profile.png](https://i.postimg.cc/kM6Lwf8v/profile.png)](https://postimg.cc/dDFWVR5h)
 
 ## Requisitos Técnicos 🛠️
 
