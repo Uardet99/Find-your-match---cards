@@ -2,7 +2,6 @@ import { saveGame } from "./cartashttps.js";
 import { loginSupabase, signUpSupabase, logoutSupabase } from "./http.js";
 import { state } from "../game/gameState.js";
 
-
 export { loginUser, isLogged, registerUser, logout, loginWithToken };
 
 function expirationDate(expires_in) {
@@ -66,11 +65,12 @@ function logout() {
   saveGame(state);
   logoutSupabase(localStorage.getItem("access_token")).then((lOData) => {
     console.log(lOData);
-  }); 
+  });
   localStorage.removeItem("access_token");
   localStorage.removeItem("uid");
 
   document.getElementById("btn-play").style.visibility = "hidden";
   document.getElementById("btn-logout").style.visibility = "hidden";
   document.getElementById("btn-profile").style.visibility = "hidden";
+  document.getElementById("btn-cargarPartida").style.visibility = "hidden";
 }

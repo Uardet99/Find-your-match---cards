@@ -109,3 +109,71 @@ export function imgAleatoria() {
   console.log(arrayAuxiliar);
   return arrayAuxiliar; // Esto contiene las cartas colocadas aleatoriamente
 }
+
+export function plantillaCargada(array) {
+  let plantilla = "";
+  if (array === null) {
+    alert("Todavia no hay partidas");
+  } else {
+    plantilla = ` <div class="cont-dinamico">
+    <div id="cont-jugadores" class="contenedor-jugadores">
+      <div id="jugador-1" class="item-jugador">
+        <h1>Jugador 1</h1>
+        <h3 id="ju-1-puntos">Puntos: ${array.estado.players[0].points}</h3>
+      </div>
+      <div id="jugador-2" class="item-jugador">
+        <h1>Jugador 2</h1>
+        <h3 id="ju-2-puntos">Puntos: ${array.estado.players[1].points}</h3>
+      </div>
+    </div>
+  
+    <div class="cont-tablero">
+    <table border="1">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+    </div>
+  </div>`;
+  }
+  return plantilla;
+}
+
+
+export function addImagenesPlantillaCargadas(array) {
+  let td = document.querySelectorAll("td");
+  let arrayRutaImagen = imgAleatoria();
+
+  for (let i = 0; i < td.length; i++) {
+    let img = document.createElement("img");
+    img.src = "src/assets/img/" + array.estado.board.cells[i];
+
+    img.id = "img-" + i;
+    td[i].appendChild(img);
+  }
+}

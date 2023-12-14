@@ -1,5 +1,5 @@
 // INSERTAR JSON EN SUPABASE
-export { saveGame };
+export { saveGame, getState, ultimaPartida };
 async function saveGame(gameState) {
   const response = await fetch(
     "https://pgzzjqwtbgogicylniar.supabase.co/rest/v1/estado_juego",
@@ -31,4 +31,45 @@ async function saveGame(gameState) {
     .catch((error) => {
       console.error("Error durante la solicitud", error);
     });
+}
+
+async function getState() {
+  const url = "https://pgzzjqwtbgogicylniar.supabase.co/rest/v1/estado_juego";
+  const apiKey =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBnenpqcXd0YmdvZ2ljeWxuaWFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDIyMjgxMjQsImV4cCI6MjAxNzgwNDEyNH0.6cQBxjHIewaA59RveaI5SHm20jJqY078af9snfYAiS8";
+
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        apikey: apiKey,
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBnenpqcXd0YmdvZ2ljeWxuaWFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDIyMjgxMjQsImV4cCI6MjAxNzgwNDEyNH0.6cQBxjHIewaA59RveaI5SHm20jJqY078af9snfYAiS8",
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("La solicitud no fue exitosa");
+    }
+
+    const datos = response.json();
+    return datos;
+  } catch (error) {
+    console.error("Error", error);
+  }
+}
+
+function ultimaPartida(datosJSON) {
+  let ultimaPartida = null;
+  let uid_usuario = localStorage.getItem("uid");
+
+  for (const key in datosJSON) {
+    const partida = datosJSON[key];
+    if (partida.uid_usuario === uid_usuario) {
+      ultimaPartida = partida;
+    }
+  }
+  console.log(ultimaPartida);
+  return ultimaPartida;
 }

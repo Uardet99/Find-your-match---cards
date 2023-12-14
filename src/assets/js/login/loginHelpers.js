@@ -69,6 +69,8 @@ function loginForm() {
         if (status.success) {
           // Para mostrar los botones
           document.getElementById("btn-play").style.visibility = "visible";
+          document.getElementById("btn-cargarPartida").style.visibility =
+            "visible";
           document.getElementById("btn-logout").style.visibility = "visible";
           document.getElementById("btn-profile").style.visibility = "visible";
 

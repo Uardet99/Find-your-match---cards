@@ -46,6 +46,12 @@ header {
     visibility: hidden;
 }
 
+#btn-cargarPartida {
+  background-color: chocolate;
+  color: white;
+  visibility: hidden;
+}
+
 #btn-profile {
   background-color: goldenrod;
   color: white;

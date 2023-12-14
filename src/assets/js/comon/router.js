@@ -1,10 +1,15 @@
 // FUNCIONES UTILIES GENERALES
-import { createTable } from "../game/gameHelpers.js";
+import {
+  createTable,
+  plantillaCargada,
+  addImagenesPlantillaCargadas,
+} from "../game/gameHelpers.js";
 import { startGame } from "../game/gameLogic.js";
 import { login, loginForm } from "../login/loginHelpers.js";
 import { register, registerForm } from "../register/registerHelpers.js";
 import { logout } from "./users.js";
 import { templateProfile } from "../profile/profileHelpers.js";
+import { getState, ultimaPartida } from "./cartashttps.js";
 
 export function ruta(url) {
   const contenedorDinamico = document.getElementById("contenido-dinamico");
@@ -28,6 +33,24 @@ export function ruta(url) {
       startGame();
       break;
 
+    case "#/cargarPartida":
+      contenedorDinamico.innerHTML = "";
+
+      let arrayJSON = [];
+      let partida = [];
+      (async () => {
+        try {
+          arrayJSON = await getState();
+          console.log("Datos:", arrayJSON.length);
+          partida = ultimaPartida(arrayJSON);
+          contenedorDinamico.innerHTML = plantillaCargada(partida);
+          addImagenesPlantillaCargadas(partida);
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      })();
+
+      break;
     case "#/profile":
       contenedorDinamico.innerHTML = "";
       contenedorDinamico.innerHTML = templateProfile();
@@ -35,7 +58,6 @@ export function ruta(url) {
       break;
     case "#/logout":
       contenedorDinamico.innerHTML = "";
-
       logout();
       break;
     default:
