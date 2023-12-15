@@ -1,3 +1,4 @@
+// JSON //
 export const state = {
   players: [
     {

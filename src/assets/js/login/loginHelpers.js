@@ -18,6 +18,7 @@ function obtenerDatosLogin() {
   });
 }
 
+// TEMPLATE LITERALS
 function plantillaLogin() {
   return `<div class="login-container">
   <div class="form-container">
@@ -37,6 +38,7 @@ function plantillaLogin() {
 </div>`;
 }
 
+// TEMPLATE LITERALS
 function loginForm() {
   const divLogin = document.createElement("div");
   divLogin.classList.add("formulari_centrat");

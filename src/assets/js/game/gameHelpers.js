@@ -21,7 +21,7 @@ export function addImagenesPlantilla() {
   }
 }
 
-// Retornamos un template del tablero
+// TEMPLATE LITERALS
 export function plantillaTablero() {
   return ` <div class="cont-dinamico">
           <div id="cont-jugadores" class="contenedor-jugadores">
@@ -109,7 +109,7 @@ export function imgAleatoria() {
   console.log(arrayAuxiliar);
   return arrayAuxiliar; // Esto contiene las cartas colocadas aleatoriamente
 }
-
+// TEMPLATE LITERALS
 export function plantillaCargada(array) {
   let plantilla = "";
   if (array === null) {
@@ -166,7 +166,7 @@ export function plantillaCargada(array) {
 
 export function addImagenesPlantillaCargadas(array) {
   let td = document.querySelectorAll("td");
-  
+
   for (let i = 0; i < td.length; i++) {
     if (array.estado.board.cells[i] !== "") {
       let img = document.createElement("img");
@@ -178,15 +178,16 @@ export function addImagenesPlantillaCargadas(array) {
   }
 }
 
-export function cargarTurnoJugador(array) {
+// DESTRUCTURING
+export function cargarTurnoJugador({ estado }) {
   let contenedorJugador1 = document.getElementById("jugador-1");
   let contenedorJugador2 = document.getElementById("jugador-2");
-  console.log(array.estado.turno);
-  if(array.estado.turno == 1) {
+  console.log(estado.turno);
+  if (estado.turno == 1) {
     contenedorJugador2.style.backgroundColor = "red";
     console.log("Turno jugador 2");
   } else {
     console.log("Turno jugador 1");
     contenedorJugador1.style.backgroundColor = "red";
   }
-} 
+}

@@ -1,10 +1,8 @@
-import { Jugador } from "../src/assets/js/game/jugador.js";
+// TESTS JASMINE - FUNCIONS PURES MES IMPORTANTS DEL PROJECTO 
 import * as GameHelpers from "../src/assets/js/game/gameHelpers.js";
 import * as Views from "../src/assets/js/views.js";
-import * as GameLogic from "../src/assets/js/game/gameLogic.js";
 import * as Login from "../src/assets/js/login/loginHelpers.js";
 import * as Register from "../src/assets/js/register/registerHelpers.js";
-import * as Profile from "../src/assets/js/profile/profileHelpers.js";
 
 describe("TESTING - Funciones Proyecto", function () {
   describe("plantillaTablero()", function () {

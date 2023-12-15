@@ -1,5 +1,7 @@
 export { templateProfile };
 
+// LOCALSTORAGE
+// TEMPLATE LITERALS
 function templateProfile() {
   let correo = localStorage.getItem("correo");
   let nombreUsuario = correo.split("@")[0];

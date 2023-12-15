@@ -14,7 +14,7 @@ function obtenerDatosRegistro() {
   });
 }
 
-
+// TEMPLATE LITERALS
 function plantillaRegistro() {
   return `<div class="register-container">
     <div class="register-form-container">
@@ -42,6 +42,7 @@ import { registerUser } from "../comon/users.js";
 
 export { registerForm };
 
+// TEMPLATE LITERALS
 function registerForm() {
   const divLogin = document.createElement("div");
   divLogin.classList.add("formulari_centrat");

@@ -9,6 +9,7 @@ function expirationDate(expires_in) {
   return Math.floor(Date.now() / 1000) + expires_in;
 }
 
+// LOCALSTORAGE
 async function loginUser(email, password) {
   const status = { success: false };
   try {
@@ -35,7 +36,7 @@ function loginWithToken(access_token, expires_in) {
   localStorage.setItem("access_token", access_token);
   localStorage.setItem("expirationDate", expirationDate(expires_in));
 }
-
+// LOCALSTORAGE
 function isLogged() {
   if (localStorage.getItem("access_token")) {
     if (
@@ -61,7 +62,7 @@ function registerUser(email, password) {
   }
   return status;
 }
-
+// LOCALSTORAGE
 function logout() {
   saveGame(state);
   logoutSupabase(localStorage.getItem("access_token")).then((lOData) => {

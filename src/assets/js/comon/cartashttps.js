@@ -1,4 +1,4 @@
-// INSERTAR JSON EN SUPABASE
+// API REST -> JSON EN SUPABASE
 export { saveGame, getState, ultimaPartida, cargarPartida };
 import {
   addImagenesPlantillaCargadas,

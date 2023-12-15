@@ -7,6 +7,8 @@ import { logout } from "./users.js";
 import { templateProfile } from "../profile/profileHelpers.js";
 import { cargarPartida } from "./cartashttps.js";
 
+
+// ROUTER
 export function ruta(url) {
   const contenedorDinamico = document.getElementById("contenido-dinamico");
   switch (url) {
