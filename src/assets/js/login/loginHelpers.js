@@ -1,5 +1,6 @@
 export { loginForm };
 import { loginUser } from "../comon/users.js";
+import { configurarBotones } from "../views.js";
 
 export function login() {
   let contenedorDinamico = document.getElementById("contenido-dinamico");
@@ -68,12 +69,16 @@ function loginForm() {
       loginUser(email, password).then((status) => {
         if (status.success) {
           // Para mostrar los botones
-          document.getElementById("btn-play").style.visibility = "visible";
+          /* document.getElementById("btn-play").style.visibility = "visible";
           document.getElementById("btn-cargarPartida").style.visibility =
             "visible";
           document.getElementById("btn-logout").style.visibility = "visible";
           document.getElementById("btn-profile").style.visibility = "visible";
 
+          document.getElementById("btn-login").style.visibility = "hidden";
+          document.getElementById("btn-register").style.visibility = "hidden";
+ */
+          configurarBotones("login");
           localStorage.setItem("correo", email);
           window.location.hash = "#/jugar";
         } else {

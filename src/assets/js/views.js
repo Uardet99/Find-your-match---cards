@@ -33,11 +33,32 @@ function resaltarDivJugadorPrimerTurno() {
   contenedorJugador1.style.backgroundColor = "red";
 }
 
+function configurarBotones(criterio) {
+  if (criterio === "login") {
+    document.getElementById("btn-play").style.visibility = "visible";
+    document.getElementById("btn-cargarPartida").style.visibility = "visible";
+    document.getElementById("btn-logout").style.visibility = "visible";
+    document.getElementById("btn-profile").style.visibility = "visible";
+
+    document.getElementById("btn-login").style.visibility = "hidden";
+    document.getElementById("btn-register").style.visibility = "hidden";
+  } else {
+    document.getElementById("btn-play").style.visibility = "hidden";
+    document.getElementById("btn-logout").style.visibility = "hidden";
+    document.getElementById("btn-profile").style.visibility = "hidden";
+    document.getElementById("btn-cargarPartida").style.visibility = "hidden";
+
+    document.getElementById("btn-login").style.visibility = "visible";
+    document.getElementById("btn-register").style.visibility = "visible";
+  }
+}
+
 export {
   habilitarClick,
   desactivarClick,
   desabilitarEsteClick,
   reiniciarClick,
   resaltarDivJugador,
-  resaltarDivJugadorPrimerTurno
+  resaltarDivJugadorPrimerTurno,
+  configurarBotones,
 };

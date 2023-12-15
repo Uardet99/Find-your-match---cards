@@ -1,5 +1,11 @@
 // INSERTAR JSON EN SUPABASE
-export { saveGame, getState, ultimaPartida };
+export { saveGame, getState, ultimaPartida, cargarPartida };
+import {
+  addImagenesPlantillaCargadas,
+  plantillaCargada,
+  cargarTurnoJugador,
+} from "../game/gameHelpers.js";
+
 async function saveGame(gameState) {
   const response = await fetch(
     "https://pgzzjqwtbgogicylniar.supabase.co/rest/v1/estado_juego",
@@ -73,3 +79,35 @@ function ultimaPartida(datosJSON) {
   console.log(ultimaPartida);
   return ultimaPartida;
 }
+
+async function cargarPartida() {
+  const contenedorDinamico = document.getElementById("contenido-dinamico");
+  let arrayJSON = [];
+  let partida = [];
+
+  try {
+    arrayJSON = await getState();
+    console.log("Datos:", arrayJSON.length);
+    partida = ultimaPartida(arrayJSON);
+    contenedorDinamico.innerHTML = plantillaCargada(partida);
+    addImagenesPlantillaCargadas(partida);
+    cargarTurnoJugador(partida);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+/* let arrayJSON = [];
+      let partida = [];
+      (async () => {
+        try {
+          arrayJSON = await getState();
+          console.log("Datos:", arrayJSON.length);
+          partida = ultimaPartida(arrayJSON);
+          contenedorDinamico.innerHTML = plantillaCargada(partida);
+          addImagenesPlantillaCargadas(partida);
+          cargarTurnoJugador(partida);
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      })(); */

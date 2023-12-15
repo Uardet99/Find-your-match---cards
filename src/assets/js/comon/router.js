@@ -1,20 +1,14 @@
 // FUNCIONES UTILIES GENERALES
-import {
-  createTable,
-  plantillaCargada,
-  addImagenesPlantillaCargadas,
-} from "../game/gameHelpers.js";
+import { createTable } from "../game/gameHelpers.js";
 import { startGame } from "../game/gameLogic.js";
-import { login, loginForm } from "../login/loginHelpers.js";
-import { register, registerForm } from "../register/registerHelpers.js";
+import { loginForm } from "../login/loginHelpers.js";
+import { registerForm } from "../register/registerHelpers.js";
 import { logout } from "./users.js";
 import { templateProfile } from "../profile/profileHelpers.js";
-import { getState, ultimaPartida } from "./cartashttps.js";
+import { cargarPartida } from "./cartashttps.js";
 
 export function ruta(url) {
   const contenedorDinamico = document.getElementById("contenido-dinamico");
-  const boton_registrarse = document.getElementById("btn-register");
-  const boton_login = document.getElementById("btn-login");
   switch (url) {
     case "":
       window.location.hash = "#/";
@@ -32,28 +26,17 @@ export function ruta(url) {
       createTable();
       startGame();
       break;
-
     case "#/cargarPartida":
       contenedorDinamico.innerHTML = "";
-
-      let arrayJSON = [];
-      let partida = [];
-      (async () => {
-        try {
-          arrayJSON = await getState();
-          console.log("Datos:", arrayJSON.length);
-          partida = ultimaPartida(arrayJSON);
-          contenedorDinamico.innerHTML = plantillaCargada(partida);
-          addImagenesPlantillaCargadas(partida);
-        } catch (error) {
-          console.error("Error:", error);
-        }
-      })();
-
+      cargarPartida();
       break;
     case "#/profile":
       contenedorDinamico.innerHTML = "";
       contenedorDinamico.innerHTML = templateProfile();
+      let btn_cambiarImagenProfile = document.getElementById("upload-button");
+      btn_cambiarImagenProfile.addEventListener("click", () => {
+        alert("Todavia no esta implementado el cambio de imagen de usuario");
+      });
       console.log("Profile");
       break;
     case "#/logout":

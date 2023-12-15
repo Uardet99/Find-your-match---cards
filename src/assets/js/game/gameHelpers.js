@@ -164,16 +164,29 @@ export function plantillaCargada(array) {
   return plantilla;
 }
 
-
 export function addImagenesPlantillaCargadas(array) {
   let td = document.querySelectorAll("td");
-  let arrayRutaImagen = imgAleatoria();
-
+  
   for (let i = 0; i < td.length; i++) {
-    let img = document.createElement("img");
-    img.src = "src/assets/img/" + array.estado.board.cells[i];
+    if (array.estado.board.cells[i] !== "") {
+      let img = document.createElement("img");
+      img.src = "src/assets/img/" + array.estado.board.cells[i];
 
-    img.id = "img-" + i;
-    td[i].appendChild(img);
+      img.id = "img-" + i;
+      td[i].appendChild(img);
+    }
   }
 }
+
+export function cargarTurnoJugador(array) {
+  let contenedorJugador1 = document.getElementById("jugador-1");
+  let contenedorJugador2 = document.getElementById("jugador-2");
+  console.log(array.estado.turno);
+  if(array.estado.turno == 1) {
+    contenedorJugador2.style.backgroundColor = "red";
+    console.log("Turno jugador 2");
+  } else {
+    console.log("Turno jugador 1");
+    contenedorJugador1.style.backgroundColor = "red";
+  }
+} 

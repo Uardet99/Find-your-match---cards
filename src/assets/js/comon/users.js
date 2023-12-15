@@ -1,6 +1,7 @@
 import { saveGame } from "./cartashttps.js";
 import { loginSupabase, signUpSupabase, logoutSupabase } from "./http.js";
 import { state } from "../game/gameState.js";
+import { configurarBotones } from "../views.js";
 
 export { loginUser, isLogged, registerUser, logout, loginWithToken };
 
@@ -69,8 +70,12 @@ function logout() {
   localStorage.removeItem("access_token");
   localStorage.removeItem("uid");
 
-  document.getElementById("btn-play").style.visibility = "hidden";
+  configurarBotones("logout");
+  /* document.getElementById("btn-play").style.visibility = "hidden";
   document.getElementById("btn-logout").style.visibility = "hidden";
   document.getElementById("btn-profile").style.visibility = "hidden";
   document.getElementById("btn-cargarPartida").style.visibility = "hidden";
-}
+
+  document.getElementById("btn-login").style.visibility = "visible";
+  document.getElementById("btn-register").style.visibility = "visible";
+ */}
